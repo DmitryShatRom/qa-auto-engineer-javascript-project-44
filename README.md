@@ -4,3 +4,6 @@
 
 ### Watch how 'brain-even' works at asciinema:
 [asciinema demo](https://asciinema.org/a/ABR8g3nAjguZyxCK)
+
+### Watch how 'brain-calc' works at asciinema:
+[asciinema demo](https://asciinema.org/a/viMOJW7G0XJ9NQ0Y)
