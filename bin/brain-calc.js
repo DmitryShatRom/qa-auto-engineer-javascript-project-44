@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync'
-import { userName } from './brain-games.js'
+import gameFramework from '../src/index.js'
 
 const makeOperation = () => {
   const operations = [' + ', ' - ', ' * ']
@@ -12,33 +11,25 @@ const makeOperation = () => {
   return result
 }
 
-console.log('What is the result of the expression?')
+const gameCondition = (randomNums, answer) => {
+  const correctAnswer = eval(randomNums)
+  return (answer === correctAnswer)
+}
 
-let count = 0
-while (count < 3) {
-  const randOperation = makeOperation()
-  console.log(`Question: ${randOperation}`)
-  const correctAnswer = eval(randOperation)
-  let answer = readlineSync.question('Your answer: ')
+const validAnswerCondition = (answer) => {
+  return (!Number.isNaN(answer))
+}
+
+const makeAnswerValid = (answer) => {
   answer = Number(answer)
-
-  if (!Number.isFinite(answer)) {
-    break
-  }
-
-  if (answer === correctAnswer) {
-    count++
-    console.log('Correct!')
-  }
-  else {
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`)
-    break
-  }
+  return answer
 }
 
-if (count === 3) {
-  console.log(`Congratulations, ${userName}!`)
+const makeCorrectAnswer = (randomNums) => {
+  const correctAnswer = eval(randomNums)
+  return correctAnswer
 }
-else {
-  console.log(`Let's try again, ${userName}!`)
-}
+
+const gameDescription = 'What is the result of the expression?'
+
+gameFramework(gameDescription, makeOperation, validAnswerCondition, gameCondition, makeAnswerValid, makeCorrectAnswer)

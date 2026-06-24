@@ -1,16 +1,24 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync'
-import { userName } from './brain-games.js'
+import gameFramework from '../src/index.js'
 
-const isEven = (num) => {
-  return num % 2 === 0
+const makeOperation = () => {
+  return Math.floor(Math.random() * 100) + 1
 }
 
-const isCorrect = (answer) => {
+const gameCondition = (randomNum, answer) => {
+  return ((randomNum % 2 === 0 && answer === 'yes') || (randomNum % 2 !== 0 && answer === 'no'))
+}
+
+const makeAnswerValid = (answer) => {
+  const correctAnswer = answer.toLowerCase()
+  return correctAnswer
+}
+
+const corrertAnswerCondition = (answer) => {
   return (answer === 'yes' || answer === 'no')
 }
 
-const doAnotherAnswer = (answer) => {
+const makeCorrectAnswer = (answer) => {
   let correctAnswer = ''
   if (answer === 'yes') {
     correctAnswer = 'no'
@@ -21,32 +29,6 @@ const doAnotherAnswer = (answer) => {
   return correctAnswer
 }
 
-console.log('Answer "yes" if the number is even, otherwise answer "no".')
+const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".'
 
-let count = 0
-while (count < 3) {
-  const randNum = Math.floor(Math.random() * 100) + 1
-  console.log(`Question: ${randNum}`)
-  let answer = readlineSync.question('Your answer: ')
-  answer = answer.toLowerCase()
-
-  if (!isCorrect(answer)) {
-    break
-  }
-
-  if ((isEven(randNum) && answer === 'yes') || (!isEven(randNum) && answer === 'no')) {
-    count++
-    console.log('Correct!')
-  }
-  else {
-    console.log(`'${answer}' is wrong answer :(. Correct answer was '${doAnotherAnswer(answer)}'`)
-    break
-  }
-}
-
-if (count === 3) {
-  console.log(`Congratulations, ${userName}!`)
-}
-else {
-  console.log(`Let's try again, ${userName}!`)
-}
+gameFramework(gameDescription, makeOperation, corrertAnswerCondition, gameCondition, makeAnswerValid, makeCorrectAnswer)
