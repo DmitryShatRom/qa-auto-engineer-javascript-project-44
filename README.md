@@ -7,3 +7,6 @@
 
 ### Watch how 'brain-calc' works at asciinema:
 [asciinema demo](https://asciinema.org/a/viMOJW7G0XJ9NQ0Y)
+
+### Watch how 'brain-gcd' works at asciinema:
+[asciinema demo](https://asciinema.org/a/ZLBuhSBCeEmBFECc)

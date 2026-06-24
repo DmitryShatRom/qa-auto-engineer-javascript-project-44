@@ -21,7 +21,13 @@ const gameFramework = (gameDescription, makeOperation, validAnswerCondition, gam
       console.log('Correct!')
     }
     else {
-      const correctAnswer = makeCorrectAnswer(randNums)
+      let correctAnswer
+      if (Number.isInteger(makeAnswerValid(answer))) {
+        correctAnswer = makeCorrectAnswer(randNums)
+      }
+      else {
+        correctAnswer = makeCorrectAnswer(answer)
+      }
       console.log(`'${answer}' is wrong answer :(. Correct answer was '${correctAnswer}'`)
       break
     }
