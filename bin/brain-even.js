@@ -18,13 +18,13 @@ const corrertAnswerCondition = (answer) => {
   return (answer === 'yes' || answer === 'no')
 }
 
-const makeCorrectAnswer = (answer) => {
-  let correctAnswer = ''
-  if (answer === 'yes') {
-    correctAnswer = 'no'
-  }
-  else if (answer === 'no') {
+const makeCorrectAnswer = (randNum) => {
+  let correctAnswer
+  if (randNum % 2 === 0) {
     correctAnswer = 'yes'
+  }
+  else {
+    correctAnswer = 'no'
   }
   return correctAnswer
 }

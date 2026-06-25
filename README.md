@@ -13,3 +13,6 @@
 
 ### Watch how 'brain-progression' works at asciinema:
 [asciinema demo](https://asciinema.org/a/0ZuM2PGBNWvpzMwR)
+
+### Watch how 'brain-prime' works at asciinema:
+[asciinema demo](https://asciinema.org/a/69Wf7GzhuzM3CvE0)
