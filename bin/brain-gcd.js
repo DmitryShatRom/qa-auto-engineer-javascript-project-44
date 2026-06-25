@@ -10,7 +10,7 @@ const makeOperation = () => {
   return result
 }
 
-const validAnswerCondition = (answer) =>{
+const validAnswerCondition = (answer) => {
   return (!Number.isNaN(answer))
 }
 
